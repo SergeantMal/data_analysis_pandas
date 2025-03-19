@@ -14,4 +14,4 @@ data = {
 df = pd.DataFrame(data)
 
 # Выводим таблицу
-print(df.h)
+print(df.head()) # Выводим первые 5 строк
