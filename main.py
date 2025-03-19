@@ -15,3 +15,27 @@ df = pd.DataFrame(data)
 
 # Выводим таблицу
 print(df.head()) # Выводим первые 5 строк
+
+# Вычисляем среднюю оценку по каждому предмету
+average_scores = df.drop('Student', axis=1).mean()
+
+# Выводим средние оценки по предметам
+print("\nСредние оценки по предметам:\n",average_scores)
+
+# Вычисляем медианную оценку по каждому предмету
+median_scores = df.drop('Student', axis=1).median()
+
+# Выводим медианные оценки по предметам
+print("\nМедианные оценки по предметам:\n",median_scores)
+
+Q1_math = df['Math'].quantile(0.25)
+
+Q3_math = df['Math'].quantile(0.75)
+
+IQR_math = Q3_math - Q1_math
+
+# Вычисляем стандартное отклонение для предмета "Math"
+std_dev_math = df['Math'].std()
+
+# Выводим стандартное отклонение
+print("\nСтандартное отклонение по математике:", std_dev_math)
