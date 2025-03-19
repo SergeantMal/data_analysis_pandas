@@ -20,19 +20,28 @@ print(df.head()) # Выводим первые 5 строк
 average_scores = df.drop('Student', axis=1).mean()
 
 # Выводим средние оценки по предметам
-print("\nСредние оценки по предметам:\n",average_scores)
+print(f"\nСредние оценки по предметам:\n{average_scores}")
 
 # Вычисляем медианную оценку по каждому предмету
 median_scores = df.drop('Student', axis=1).median()
 
 # Выводим медианные оценки по предметам
-print("\nМедианные оценки по предметам:\n",median_scores)
+print(f"\nМедианные оценки по предметам:\n{median_scores}")
+
+# Вычисляем квартили для предмета "Math"
 
 Q1_math = df['Math'].quantile(0.25)
 
 Q3_math = df['Math'].quantile(0.75)
 
+# Вычисляем межквартильный размах
+
 IQR_math = Q3_math - Q1_math
+
+print("\nПервый квартиль по математике:", Q1_math,
+      "\nТретий квартиль по математике:", Q3_math,
+      "\nМежквартильный размах по математике:", IQR_math)
+
 
 # Вычисляем стандартное отклонение для предмета "Math"
 std_dev_math = df['Math'].std()
